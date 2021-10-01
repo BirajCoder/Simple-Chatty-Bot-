@@ -33,13 +33,23 @@ def count():
 
 def test():
     print("Let's test your programming knowledge.")
-    print("""Why do we use methods?
+    print("""1. Why do we use methods?
     1. To repeat a statement multiple times.
     2. To decompose a program into several small subroutines.
     3. To determine the execution time of a program.
     4. To interrupt the execution of a program.""")
     n = int(input())
     while n != 2:
+        print("Please, try again.")
+        n = int(input())
+    print('Next question:')
+    print("""2. Which operator has higher precedence in the following list?
+    1. % (Modulus)
+    2. & (BitWise AND)
+    3. ** (Exponent)
+    4. > (Comparison)
+    """)
+    while n != 3:
         print("Please, try again.")
         n = int(input())
     print('Completed, have a nice day!')
@@ -49,7 +59,7 @@ def end():
     print('Congratulations, have a nice day!')
 
 
-greet('Sova', '2000') 
+greet('Sova', '2000')
 remind_name()
 guess_age()
 count()
