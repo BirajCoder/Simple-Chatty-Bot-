@@ -1,3 +1,5 @@
+import requests
+
 def greet(bot_name, birth_year):
     print(f'Hello! My name is {bot_name}.')
     print(f'I was created in {birth_year}.')
@@ -73,11 +75,22 @@ def test():
     while n != 1:
         print("Please, try again.")
         n = int(input())
-    print('Completed, have a nice day!')
+    print('You have completed the test, congratulations!')
+
+
+def joke():
+    if str(input('Do you want to read a joke? y/n: ')) == "y":
+        print("I'm thinking...")
+        r = requests.get('https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,explicit&type=twopart')
+        r = r.json()
+        print('-----------')
+        print(r["setup"], '\n')
+        print(r["delivery"])
+        print('-----------', '\n')
 
 
 def end():
-    print('Congratulations, have a nice day!')
+    print('Have a nice day!')
 
 
 greet('Sova', '2000')
@@ -85,4 +98,5 @@ remind_name()
 guess_age()
 count()
 test()
+joke()
 end()
