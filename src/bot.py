@@ -1,3 +1,5 @@
+import requests
+
 def greet(bot_name, birth_year):
     print(f'Hello! My name is {bot_name}.')
     print(f'I was created in {birth_year}.')
@@ -49,14 +51,46 @@ def test():
     3. ** (Exponent)
     4. > (Comparison)
     """)
+    n = int(input())
     while n != 3:
         print("Please, try again.")
         n = int(input())
-    print('Completed, have a nice day!')
+    print('Next question:')
+    print("""3. What is the output of the following code:
+    ---------------------------------------------
+        salary = 8000
+        
+        def printSalary():
+          salary = 12000
+          print("Salary:", salary)
+          
+        printSalary()
+        print("Salary:", salary)
+    ---------------------------------------------
+    1. Salary: 12000 Salary: 8000
+    2. Salary: 8000 Salary: 12000
+    3. The program failed with errors
+    """)
+    n = int(input())
+    while n != 1:
+        print("Please, try again.")
+        n = int(input())
+    print('You have completed the test, congratulations!')
+
+
+def joke():
+    if str(input('Do you want to read a joke? y/n: ')) == "y":
+        print("I'm thinking...")
+        r = requests.get('https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,explicit&type=twopart')
+        r = r.json()
+        print('-----------')
+        print(r["setup"], '\n')
+        print(r["delivery"])
+        print('-----------', '\n')
 
 
 def end():
-    print('Congratulations, have a nice day!')
+    print('Have a nice day!')
 
 
 greet('Sova', '2000')
@@ -64,4 +98,5 @@ remind_name()
 guess_age()
 count()
 test()
+joke()
 end()
